@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.tbdev.tablayoutornekleri.R;
-import com.tbdev.tablayoutornekleri.adapters.TextTabAdapter;
+import com.tbdev.tablayoutornekleri.adapters.IconTabAdapter;
 import com.tbdev.tablayoutornekleri.fragments.FragmentFive;
 import com.tbdev.tablayoutornekleri.fragments.FragmentFour;
 import com.tbdev.tablayoutornekleri.fragments.FragmentOne;
@@ -24,44 +24,38 @@ import java.util.List;
  * Created by developer on 9.10.2017.
  */
 
-public class TextTab extends AppCompatActivity {
-
-
+public class IconTab extends AppCompatActivity {
     List<Fragment> fragmentList = new ArrayList<>();
-    List<String> tabBaslikListesi = new ArrayList<>();
     TabLayout tabLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_text_tab);
+        setContentView(R.layout.activity_icon_tab);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Text Tab Örnek");
+        toolbar.setTitle("Icon Tab Örnek");
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        setData(new FragmentOne(), "Tab1");
-        setData(new FragmentTwo(), "Tab2");
-        setData(new FragmentThree(), "Tab3");
-        setData(new FragmentFour(), "Tab4");
-        setData(new FragmentFive(), "Tab5");
-        setData(new FragmentSix(), "Tab6");
+        setData(new FragmentOne());
+        setData(new FragmentTwo());
+        setData(new FragmentThree());
+        setData(new FragmentFour());
+        setData(new FragmentFive());
+        setData(new FragmentSix());
 
-        TextTabAdapter adapter = new TextTabAdapter(getSupportFragmentManager(), fragmentList, tabBaslikListesi);
+
+
+        IconTabAdapter adapter = new IconTabAdapter(getSupportFragmentManager(), fragmentList);
         viewPager.setAdapter(adapter);
 
         /****TABLAYOUT*/
         tabLayout.setupWithViewPager(viewPager);
         setTabIcons();
-    }
-
-    public void setData(Fragment yeniSayfaFragment, String baslik) {
-        fragmentList.add(yeniSayfaFragment);
-        tabBaslikListesi.add(baslik);
     }
 
     private void setTabIcons() {
@@ -71,5 +65,9 @@ public class TextTab extends AppCompatActivity {
         tabLayout.getTabAt(3).setIcon(R.drawable.linkedin);
         tabLayout.getTabAt(4).setIcon(R.drawable.whatsapp);
         tabLayout.getTabAt(5).setIcon(R.drawable.twitter);
+    }
+
+    public void setData(Fragment yeniSayfaFragment) {
+        fragmentList.add(yeniSayfaFragment);
     }
 }

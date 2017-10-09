@@ -21,5 +21,12 @@
             android:layout_margin="10dp"
             android:text="Tabs with Text" />
 
+        <Button
+            android:id="@+id/btnIconTab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Tabs with Icon" />
+
     </LinearLayout>
 </RelativeLayout>

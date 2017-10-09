@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".tabs.TextTab"></activity>
+        <activity android:name=".tabs.IconTab"></activity>
     </application>
 
 </manifest>
