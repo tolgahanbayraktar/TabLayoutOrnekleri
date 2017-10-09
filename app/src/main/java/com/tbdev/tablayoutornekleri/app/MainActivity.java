@@ -8,12 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.tbdev.tablayoutornekleri.R;
+import com.tbdev.tablayoutornekleri.tabs.CustomTab;
 import com.tbdev.tablayoutornekleri.tabs.IconTab;
 import com.tbdev.tablayoutornekleri.tabs.TextTab;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnTextTab, btnIconTab;
+    Button btnTextTab, btnIconTab, btnCustomTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +26,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnTextTab = (Button) findViewById(R.id.btnTextTab);
         btnIconTab = (Button) findViewById(R.id.btnIconTab);
+        btnCustomTab = (Button) findViewById(R.id.btnCustomTab);
 
         btnTextTab.setOnClickListener(this);
         btnIconTab.setOnClickListener(this);
+        btnCustomTab.setOnClickListener(this);
     }
 
     @Override
@@ -42,6 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnIconTab:
                 intent = new Intent(this, IconTab.class);
+                startActivity(intent);
+
+                break;
+
+            case R.id.btnCustomTab:
+                intent = new Intent(this, CustomTab.class);
                 startActivity(intent);
 
                 break;
